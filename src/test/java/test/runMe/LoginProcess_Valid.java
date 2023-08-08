@@ -5,13 +5,19 @@ import java.io.IOException;
 import org.testng.annotations.Test;
 
 import test.baseComponent.BaseClass;
+import test.pages.Homepage;
 
 public class LoginProcess_Valid extends BaseClass{
 	
 	@Test
-	public void checkLogin() throws IOException
+	public void checkLogin() throws IOException, InterruptedException
 	{
-		loginpage.logintoB2B("https://b2b.testpitstop.com/","ashishkumar.pandey", "Otp@23456");
+		Homepage hm=loginpage.logintoB2B("https://b2b.getpitstop.com/","autoverse_test", "Pitstop@123");
+		Thread.sleep(5000);
+		
+		hm.clickOnManageSpare();
+		hm.clickonSpareRequest();
+		
 	}
 
 }
